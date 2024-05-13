@@ -1,19 +1,13 @@
-function combinationSum2(candidates, target) {
-  candidates.sort((a, b) => a - b);
-  const result = [];
-  backtrack([], 0, 0);
-  return result;
-  function backtrack(combination, start, sum) {
-    if (sum === target) {
-      result.push([...combination]);
-      return;
-    }
-    if (sum > target) return;
-    for (let i = start; i < candidates.length; i++) {
-      if (i > start && candidates[i] === candidates[i - 1]) continue;
-      combination.push(candidates[i]);
-      backtrack(combination, i + 1, sum + candidates[i]);
-      combination.pop();
+function jump(nums) {
+  let jumps = 0;
+  let currentEnd = 0;
+  let farthest = 0;
+  for (let i = 0; i < nums.length - 1; i++) {
+    farthest = Math.max(farthest, i + nums[i]);
+    if (i === currentEnd) {
+      jumps++;
+      currentEnd = farthest;
     }
   }
+  return jumps;
 }
