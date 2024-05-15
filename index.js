@@ -1,3 +1,6 @@
-function countWords(str) {
-  return str.split(" ").filter((word) => word !== "").length;
+function add(x, y) {
+  return x + y;
 }
+
+const result = add(5, 3);
+console.log(result); // 8
